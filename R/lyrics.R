@@ -6,11 +6,11 @@ get_lyrics <- function(session) {
 
   # get meta data
   song <-  session %>%
-    html_nodes(xpath = '//span[contains(@class, "SongHeaderdesktop__")]') %>%
+    html_nodes(xpath = '//h1[contains(@class, "SongHeaderdesktop__Title")]') %>%
     html_text(trim = TRUE)
 
   artist <-  session %>%
-    html_nodes(xpath = '//a[contains(@class, "SongHeaderdesktop__Artist")]') %>%
+    html_nodes(xpath = '//div[contains(@class, "HeaderArtistAndTracklistdesktop__ListArtists")]') %>%
     html_text(trim = TRUE)
 
   # ensure line breaks are preserved correctly
